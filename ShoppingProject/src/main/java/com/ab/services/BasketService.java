@@ -2,9 +2,9 @@ package com.ab.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ab.entities.BasketItem;
 import com.ab.entities.Item;
 import com.ab.entities.User;
-import com.ab.models.BasketItem;
 import com.ab.repositories.BasketRepository;
 
 public class BasketService {

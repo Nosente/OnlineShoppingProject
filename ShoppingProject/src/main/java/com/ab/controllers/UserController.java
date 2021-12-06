@@ -20,10 +20,10 @@ public class UserController {
     User loginUser(@Validated(User.class) @RequestBody User user) {
         System.out.println("Username: " + user.getUsername());
         System.out.println("Password: " + user.getPassword());
-        User resUser = userService.authenticateUser(user.getUsername(), user.getPassword());
+        User resUser = userService.loginUser(user.getUsername(), user.getPassword());
 
         if (resUser != null) {
-            System.out.println("User: " + resUser.getUsername() + " have " + resUser.getOrders().size() + " orders.");
+            System.out.println("User: " + resUser.getUsername());
         } else {
             System.out.println("User not found.");
         }
