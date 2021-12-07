@@ -15,17 +15,17 @@ public interface BasketRepository extends JpaRepository<BasketItem, Integer>{
 
 	@Transactional
 	@Modifying
-	@Query("UPDATE BasketItem b SET b.quantity =:b.quantity + amount WHERE b.itemID =:itemID")
+	@Query("UPDATE BasketItem b SET b.quantity = b.quantity + :amount WHERE b.item.itemID =:itemID")
 	void addPrice(@Param("itemID") int userID, @Param("amount") double d);
 
 	@Transactional
 	@Modifying
-	@Query("UPDATE BasketItem b SET b.quantity =:b.quantity - amount WHERE b.itemID =:itemID")
+	@Query("UPDATE BasketItem b SET b.quantity =b.quantity - :amount WHERE b.item.itemID =:itemID")
 	void removePrice(@Param("itemID") int userID, @Param("amount") double d);
 
 	@Transactional
 	@Modifying
-	@Query("UPDATE BasketItem b SET b.quantity =:b.quantity WHERE b.itemID =:itemID")
+	@Query("UPDATE BasketItem b SET b.quantity =:quantity WHERE b.item.itemID =:itemID")
 	BasketItem UpdateQuantityById(@Param("itemID") int itemID, @Param("quantity") int quantity);
 
 }

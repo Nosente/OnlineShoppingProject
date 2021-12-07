@@ -34,7 +34,7 @@ public class ItemService {
 	
 	public Item updateItemInfo(Item updatedItem) {
 		int itemID = updatedItem.getItemID();
-		itemRepository.updateItem(updatedItem);
+		itemRepository.updateItem(updatedItem.getPrice(), updatedItem.getQuantity(), updatedItem.getDescription(), updatedItem.getItemID());
 		return itemRepository.getById(itemID);
 	}
 }
